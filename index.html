@@ -17,7 +17,7 @@
       }
 
       #buttons {
-        padding-top: 80px;
+        padding-top: 100px;
       }
 
       #buttons button {
@@ -26,7 +26,7 @@
         margin: 3px;
         border: none;
         background-color: #eee;
-        font-size: 20px;
+        font-size: 12px;
         line-height: 1;
       }
 
@@ -38,24 +38,31 @@
 
       .menu button {
         width: calc(33.333% - 4px);
-        height: 50px;
+        height: 80px;
         border: none;
         background-color: #222;
         color: #fff;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .copyright {
+        font-size: 10px;
       }
     </style>
   </head>
   <body>
     <div class="menu">
-      <button id="newNote">Sortear</button>
-      <button id="play" data-note="1">Play</button>
-      <button id="answer">Resposta <span></span></button>
+      <button id="newNote">1<br />Sortear</button>
+      <button id="play" data-note="1">2<br />Play</button>
+      <button id="answer">3<br />Resposta <span></span></button>
     </div>
 
     <div id="buttons"></div>
     <div id="audios"></div>
 
-    <p>
+    <p class="copyright">
       Obrigado ao site
       <a href="https://midi.city/">https://midi.city/</a> pelos áudios.
     </p>
