@@ -21,17 +21,23 @@
 
       #buttons button {
         width: calc(25% - 6px);
-        height: 60px;
+        height: 50px;
         margin: 3px;
         border: none;
         background-color: #eee;
         font-size: 20px;
+        line-height: 1;
       }
 
-      #play {
+      .menu {
         position: fixed;
-        width: calc(100vw - 60px);
-        height: 60px;
+        left: 30px;
+        right: 30px;
+      }
+
+      .menu button {
+        width: calc(33.333% - 4px);
+        height: 50px;
         border: none;
         background-color: #222;
         color: #fff;
@@ -39,7 +45,11 @@
     </style>
   </head>
   <body>
-    <button id="play">Play</button>
+    <div class="menu">
+      <button id="newNote">Sortear</button>
+      <button id="play" data-note="1">Play</button>
+      <button id="answer">Resposta <span></span></button>
+    </div>
 
     <div id="buttons"></div>
     <div id="audios"></div>
@@ -82,29 +92,56 @@
 
       for (let i = 0; i < data.length; i++) {
         $("#buttons").append(
-          `<button data-index="${i}" style="background-color:${data[i].color}">${data[i].note}</button>`
+          `<button data-note="${i}" style="background-color:${data[i].color}">${data[i].note}</button>`
         );
 
         $("#audios").append(
           `<audio
-            data-index="${i}"
             src="https://cdn.midi.city/sound-font-assets/Compifont_01032016/0-58/${data[i].audioId}.ogg"
           ></audio>`
         );
       }
 
-      $("#buttons button").on("mousedown", e => {
-        const index = e.currentTarget.dataset.index;
+      $("button[data-note]").on("mousedown touchstart", e => {
+        const index = e.currentTarget.dataset.note;
+        play(index);
+      });
+
+      $("button[data-note]").on("mouseup touchend", e => {
+        const index = e.currentTarget.dataset.note;
+        pause(index);
+      });
+
+      $("#newNote").on("click", newNote);
+
+      $("#answer").on("click", e => {
+        const note = $("#play").attr("data-note");
+        const noteSymbol = $(`#buttons button[data-note="${note}"]`).text();
+        $(e.currentTarget)
+          .find("span")
+          .text(noteSymbol);
+      });
+
+      function play(index) {
         const audio = $("#audios audio").eq(index)[0];
         audio.currentTime = 0;
         audio.play();
-      });
+      }
 
-      $("#buttons button").on("mouseup", e => {
-        const index = e.currentTarget.dataset.index;
+      function pause(index) {
         const audio = $("#audios audio").eq(index)[0];
         audio.pause();
-      });
+      }
+
+      function newNote() {
+        var randomNote = Math.floor(Math.random() * data.length);
+        $("#play").attr("data-note", randomNote);
+        $("#answer")
+          .find("span")
+          .text("");
+      }
+
+      newNote();
     </script>
   </body>
 </html>
