@@ -53,9 +53,12 @@
     </style>
   </head>
   <body>
+
+    <h1>Advinhe a nota</h1>
+
     <div class="menu">
       <button id="newNote">1<br />Sortear</button>
-      <button id="play" data-note="1">2<br />Play</button>
+      <button id="play" data-note="1">2<br />Tocar novamente</button>
       <button id="answer">3<br />Resposta <span></span></button>
     </div>
 
@@ -103,9 +106,7 @@
         );
 
         $("#audios").append(
-          `<audio
-            src="sounds/${data[i].audioId}.mp3"
-          ></audio>`
+          `<audio src="sounds/${data[i].audioId}.mp3"></audio>`
         );
       }
 
