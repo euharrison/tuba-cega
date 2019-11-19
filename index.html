@@ -63,39 +63,38 @@
     <div id="audios"></div>
 
     <p class="copyright">
-      Obrigado ao site
-      <a href="https://midi.city/">https://midi.city/</a> pelos áudios.
+      Obrigado <a href="https://musescore.org/">MuseScore</a> pelos áudios.
     </p>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
       const data = [
-        { audioId: "28", color: "", note: "E 1" },
-        { audioId: "29", color: "", note: "F 1" },
-        { audioId: "30", color: "", note: "G♭ 1" },
-        { audioId: "31", color: "", note: "G 1" },
-        { audioId: "32", color: "", note: "A♭ 1" },
-        { audioId: "33", color: "", note: "A 1" },
-        { audioId: "34", color: "#ccc", note: "B♭ 1" },
-        { audioId: "35", color: "", note: "B 1" },
-        { audioId: "36", color: "", note: "C 2" },
-        { audioId: "37", color: "", note: "D♭ 2" },
-        { audioId: "38", color: "", note: "D 2" },
-        { audioId: "39", color: "", note: "E♭ 2" },
-        { audioId: "40", color: "", note: "E 2" },
-        { audioId: "41", color: "#ccc", note: "F 2" },
-        { audioId: "42", color: "", note: "G♭ 2" },
-        { audioId: "43", color: "", note: "G 2" },
-        { audioId: "44", color: "", note: "A♭ 2" },
-        { audioId: "45", color: "", note: "A 2" },
-        { audioId: "46", color: "#ccc", note: "B♭ 2" },
-        { audioId: "47", color: "", note: "B 2" },
-        { audioId: "48", color: "", note: "C 3" },
-        { audioId: "49", color: "", note: "D♭ 3" },
-        { audioId: "50", color: "#ccc", note: "D 3" },
-        { audioId: "51", color: "", note: "E♭ 3" },
-        { audioId: "52", color: "", note: "E 3" },
-        { audioId: "53", color: "#ccc", note: "F 3" }
+        // { audioId: "28", color: "", note: "E 1" },
+        // { audioId: "29", color: "", note: "F 1" },
+        // { audioId: "30", color: "", note: "G♭ 1" },
+        // { audioId: "31", color: "", note: "G 1" },
+        // { audioId: "32", color: "", note: "A♭ 1" },
+        // { audioId: "33", color: "", note: "A 1" },
+        // { audioId: "34", color: "#ccc", note: "B♭ 1" },
+        // { audioId: "35", color: "", note: "B 1" },
+        { audioId: "36_C2", color: "", note: "C 2" },
+        { audioId: "37_Db2", color: "", note: "D♭ 2" },
+        { audioId: "38_D2", color: "", note: "D 2" },
+        { audioId: "39_Eb2", color: "", note: "E♭ 2" },
+        { audioId: "40_E2", color: "", note: "E 2" },
+        { audioId: "41_F2", color: "#ccc", note: "F 2" },
+        { audioId: "42_Gb2", color: "", note: "G♭ 2" },
+        { audioId: "43_G2", color: "", note: "G 2" },
+        { audioId: "44_Ab2", color: "", note: "A♭ 2" },
+        { audioId: "45_A2", color: "", note: "A 2" },
+        { audioId: "46_Bb2", color: "#ccc", note: "B♭ 2" },
+        { audioId: "47_B2", color: "", note: "B 2" },
+        { audioId: "48_C3", color: "", note: "C 3" },
+        { audioId: "49_Db3", color: "", note: "D♭ 3" },
+        { audioId: "50_D3", color: "#ccc", note: "D 3" },
+        { audioId: "51_Eb3", color: "", note: "E♭ 3" },
+        { audioId: "52_E3", color: "", note: "E 3" },
+        { audioId: "53_F3", color: "#ccc", note: "F 3" }
       ].reverse();
 
       for (let i = 0; i < data.length; i++) {
@@ -105,7 +104,7 @@
 
         $("#audios").append(
           `<audio
-            src="https://cdn.midi.city/sound-font-assets/Compifont_01032016/0-58/${data[i].audioId}.ogg"
+            src="sounds/${data[i].audioId}.mp3"
           ></audio>`
         );
       }
